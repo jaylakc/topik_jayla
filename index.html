@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📖 TOPIK 韓檢寫作 51-54 題重點整理 ✍️</title>
+    <title>📖 TOPIK 韓檢寫作 51-54 題重點整理與應考須知 ✍️</title>
     <!-- Tailwind CSS CDN 確保樣式精美 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -18,9 +18,9 @@
     <!-- 頂部標題區 -->
     <header class="bg-pink-300 text-pink-950 p-5 text-center shadow-sm rounded-b-3xl">
         <h1 class="text-lg font-bold tracking-wide flex items-center justify-center gap-2">
-            <span>📖</span> TOPIK II 韓檢寫作 51-54 題攻略 <span>✍️</span>
+            <span>📖</span> TOPIK II 韓檢攻略與應考須知 <span>✍️</span>
         </h1>
-        <p class="text-xs text-pink-800 mt-1 opacity-90">核心技巧與常用句型</p>
+        <p class="text-xs text-pink-800 mt-1 opacity-90">高分過關必看！核心技巧、常用句型與考場規則</p>
         
         <!-- 功能按鈕 -->
         <div class="flex justify-center gap-3 mt-4">
@@ -33,20 +33,23 @@
         </div>
     </header>
 
-    <!-- 分頁標籤列 (51-54題) -->
+    <!-- 分頁標籤列 (51-54題 + 應考須知) -->
     <div class="max-w-md mx-auto px-4 mt-4">
-        <div class="flex bg-white/80 p-1.5 rounded-2xl shadow-sm border border-pink-100 justify-between">
-            <button onclick="switchTab(51)" id="tab-51" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500 bg-transparent shadow-none">
+        <div class="flex bg-white/80 p-1.5 rounded-2xl shadow-sm border border-pink-100 justify-between gap-1 overflow-x-auto">
+            <button onclick="switchTab(51)" id="tab-51" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500 bg-transparent shadow-none min-w-[65px]">
                 第 51 題<br><span class="text-[10px] font-normal opacity-90">實用短文</span>
             </button>
-            <button onclick="switchTab(52)" id="tab-52" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500">
+            <button onclick="switchTab(52)" id="tab-52" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500 min-w-[65px]">
                 第 52 題<br><span class="text-[10px] font-normal opacity-90">客觀陳述</span>
             </button>
-            <button onclick="switchTab(53)" id="tab-53" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition bg-pink-400 text-white shadow-sm">
+            <button onclick="switchTab(53)" id="tab-53" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500 min-w-[65px]">
                 第 53 題<br><span class="text-[10px] font-normal opacity-90">圖表作文</span>
             </button>
-            <button onclick="switchTab(54)" id="tab-54" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500">
+            <button onclick="switchTab(54)" id="tab-54" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500 min-w-[65px]">
                 第 54 題<br><span class="text-[10px] font-normal opacity-90">申論作文</span>
+            </button>
+            <button onclick="switchTab('info')" id="tab-info" class="tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition bg-pink-400 text-white shadow-sm min-w-[70px]">
+                📌 須知<br><span class="text-[10px] font-normal opacity-90">考場規則</span>
             </button>
         </div>
     </div>
@@ -58,23 +61,23 @@
 
     <!-- 底部導覽列 -->
     <nav class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-pink-100 py-2 px-6 flex justify-around items-center shadow-lg max-w-md mx-auto rounded-t-2xl">
-        <div class="text-center text-pink-500 cursor-pointer">
+        <div onclick="switchTab(51)" class="text-center text-pink-500 cursor-pointer">
             <div class="text-lg">📚</div>
-            <span class="text-[10px] font-bold">重點整理</span>
+            <span class="text-[10px] font-bold">寫作攻略</span>
         </div>
-        <div class="text-center text-gray-400 cursor-pointer hover:text-pink-500">
+        <div onclick="switchTab(53)" class="text-center text-gray-400 cursor-pointer hover:text-pink-500">
             <div class="text-lg">✍️</div>
-            <span class="text-[10px] font-medium">常用句型</span>
+            <span class="text-[10px] font-medium">圖表特訓</span>
         </div>
-        <div class="text-center text-gray-400 cursor-pointer hover:text-pink-500">
+        <div onclick="switchTab('info')" class="text-center text-gray-400 cursor-pointer hover:text-pink-500">
             <div class="text-lg">🎯</div>
-            <span class="text-[10px] font-medium">考古題庫</span>
+            <span class="text-[10px] font-medium">應考須知</span>
         </div>
     </nav>
 
     <!-- JavaScript 邏輯 -->
     <script>
-        // 各題型的重點資料
+        // 各題型與應考須知的重點資料
         const studyData = {
             51: [
                 {
@@ -95,7 +98,7 @@
                     time: "關鍵語法補充",
                     title: "常用高分填空文法",
                     tag: "核心句型",
-                    detail: "• ~(으)ㄹ 겸해서（兼作...、順便...）\n• ~(으)ㄴ 지 ［時間］가 되다（...有多久了）\n• ~(으)ㄹ 예정입니다 / 予定이다（預定要...）",
+                    detail: "• ~(으)ㄹ 겸해서（兼作...、順便...）\n• ~(으)ㄴ 지 ［時間］가 되다（...有多久了）\n• ~(으)ㄹ 예정입니다 / 예정이다（預定要...）",
                     note: "💡 51題經常考「詢問日程」、「告知變更」或「申請事項」，掌握這些慣用表現能瞬間秒殺空格！"
                 }
             ],
@@ -178,8 +181,31 @@
                     time: "關鍵語法 03",
                     title: "3. 申論題高分句型與轉折",
                     tag: "核心句型",
-                    detail: "• ~(으)ㄹ 뿐만 아니라（不僅...而且...）\n• ~(으)ㄴ/는 바와 같이（正如...一樣）\n• ~(으)ㅁ에 틀림없다（毫無疑問是...、必定是...）\n• ~(으)ㄹ 필요가 있다 / 괸장히 중요하다（有必要...）",
+                    detail: "• ~(으)ㄹ 뿐만 아니라（不僅...而且...）\n• ~(으)ㄴ/는 바와 같이（正如...一樣）\n• ~(으)ㅁ에 틀림없다（毫無疑問是...、必定是...）\n• ~(으)ㄹ 필요가 있다 / 굉장히 중요하다（有必要...）",
                     note: "💡 54題想要突破高分，必須靈活運用「主動與被動」、「雙重否定」或「名詞化句型」，避免口語化的表達方式。"
+                }
+            ],
+            info: [
+                {
+                    time: "必備清單",
+                    title: "✅ 應帶物品（缺一不可）",
+                    tag: "入場驗證與作答",
+                    detail: "1. 准考證（請務必提前列印紙本）\n2. 規定身分證件正本（國民身分證、駕照、有效期限內護照或居留證；學生證/健保卡/數位證件皆不受理）\n3. 修正帶 / 立可帶（修改答案用；現場也可向監試人員借用）\n4. 保暖外套（考場冷氣強弱不一，建議隨身攜帶）",
+                    note: "💡 注意：作答『專用雙頭電腦筆』由考場統一提供（不用自備電腦畫卡筆）！"
+                },
+                {
+                    time: "違規地雷",
+                    title: "❌ 嚴禁攜帶與違禁物品",
+                    tag: "違者不予計分",
+                    detail: "1. 手機、智慧型手錶/手環、藍芽耳機等所有電子穿戴設備（入場前必須完全關機並取消鬧鐘，放到教室前方）\n2. 時鐘與電子錶（韓方規定禁止佩戴任何手錶/時鐘入場，教室前方會設有時鐘供參考）\n3. 修正液 / 立可白（禁止使用，會弄髒掃描器導致讀卡失敗）\n4. 自備傳統文具（除修正帶外，個人筆、鉛筆盒、墊板等均不得放在桌上）",
+                    note: "💡 警告：第一節休息時間亦『禁止使用手機』，違者直接以不計分處理！"
+                },
+                {
+                    time: "時程規劃",
+                    title: "⏰ TOPIK II 考試時間表",
+                    tag: "時間與進場時程",
+                    detail: "【第一節】聽力 + 寫作（110分鐘）\n• 預備入場時間：約 12:20 - 12:40 前須完成進場\n• 聽力（ 듣기 ）：60 分鐘（50題）\n• 寫作（ 쓰기 ）：50 分鐘（4題）\n• 休息時間：約 14:30 - 15:00（嚴禁使用手機）\n\n【第二節】閱讀（70分鐘）\n• 閱讀（ 읽기 ）：70 分鐘（50題）",
+                    note: "💡 提示：聽力第一節缺考者，第二節將不得入場應試，請務必提早抵達考場！"
                 }
             ]
         };
@@ -188,36 +214,40 @@
         function switchTab(questionNum) {
             // 更新按鈕樣式
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.className = "tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500 bg-transparent shadow-none";
+                btn.className = "tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition text-gray-400 hover:text-pink-500 bg-transparent shadow-none min-w-[65px]";
             });
             const activeBtn = document.getElementById(`tab-${questionNum}`);
-            activeBtn.className = "tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition bg-pink-400 text-white shadow-sm";
+            if (activeBtn) {
+                activeBtn.className = "tab-btn flex-1 py-2 text-center text-xs font-bold rounded-xl transition bg-pink-400 text-white shadow-sm min-w-[65px]";
+            }
 
             // 渲染對應內容
             const container = document.getElementById('content-container');
             container.innerHTML = '';
 
-            studyData[questionNum].forEach(item => {
-                const card = document.createElement('div');
-                card.className = "bg-white p-4 rounded-2xl shadow-sm border border-pink-100/80 relative overflow-hidden";
-                card.innerHTML = `
-                    <div class="absolute top-0 left-0 w-1.5 h-full bg-pink-300"></div>
-                    <div class="flex justify-between items-center mb-1">
-                        <span class="text-xs font-bold text-pink-700/80">${item.time}</span>
-                        <span class="text-[10px] bg-pink-50 text-pink-600 px-2 py-0.5 rounded-full font-medium border border-pink-100">${item.tag}</span>
-                    </div>
-                    <h3 class="text-base font-bold text-gray-800 mb-2">${item.title}</h3>
-                    <p class="text-xs text-gray-600 whitespace-pre-line leading-relaxed mb-3">${item.detail}</p>
-                    <div class="bg-pink-50/60 text-pink-900 text-xs p-2.5 rounded-xl border border-pink-100 font-medium">
-                        ${item.note}
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+            if (studyData[questionNum]) {
+                studyData[questionNum].forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = "bg-white p-4 rounded-2xl shadow-sm border border-pink-100/80 relative overflow-hidden";
+                    card.innerHTML = `
+                        <div class="absolute top-0 left-0 w-1.5 h-full bg-pink-300"></div>
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-xs font-bold text-pink-700/80">${item.time}</span>
+                            <span class="text-[10px] bg-pink-50 text-pink-600 px-2 py-0.5 rounded-full font-medium border border-pink-100">${item.tag}</span>
+                        </div>
+                        <h3 class="text-base font-bold text-gray-800 mb-2">${item.title}</h3>
+                        <p class="text-xs text-gray-600 whitespace-pre-line leading-relaxed mb-3">${item.detail}</p>
+                        <div class="bg-pink-50/60 text-pink-900 text-xs p-2.5 rounded-xl border border-pink-100 font-medium">
+                            ${item.note}
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
         }
 
-        // 初始化載入第 51 題
-        switchTab(51);
+        // 初始化預設載入「應考須知 (info)」
+        switchTab('info');
     </script>
 </body>
 </html>
